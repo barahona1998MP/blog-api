@@ -7,3 +7,7 @@
 - Categories
 - Comments
 - Likes
+
+## Auth
+- Sign up /auth/sign-up
+- Login /auth/login
