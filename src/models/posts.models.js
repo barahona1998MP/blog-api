@@ -25,7 +25,6 @@ const Posts = db.define('posts', {
     },
     coverUrl: {
         type: DataTypes.STRING,
-
     },
     categoryId:{
         type: DataTypes.INTEGER,

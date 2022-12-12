@@ -1,6 +1,7 @@
 const Users = require('../models/users.models')
 const uuid = require('uuid')
 const { hashPassword } = require('../utils/crypto')
+const { where } = require('sequelize')
 const findAllUsers = async() => {
     const data = await Users.findAll()
     return data
@@ -37,9 +38,29 @@ const findUserByEmail = async(email) => {
     return data
 }
 
+const updateUser = async(id, obj) => {
+    const data = await Users.update(obj, {
+        where: {
+            id: id
+        }
+    })
+    return data[0]
+}
+
+const deleteUser = async(id) =>  {
+    const data = await Users.destroy({
+        where: {
+            id: id
+        }
+    })
+    return data
+}
+
 module.exports = {
     findAllUsers,
     findUserById,
     createUser,
-    findUserByEmail
+    findUserByEmail,
+    updateUser,
+    deleteUser
 }
